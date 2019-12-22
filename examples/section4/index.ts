@@ -1,22 +1,21 @@
-class Greeter {
-  static standardGreeting = "Hello, there";
-  greeting: string;
-  greet() {
-    if (this.greeting) {
-      return "Hello, " + this.greeting;
-    }
-    else {
-      return Greeter.standardGreeting;
-    }
+class Grid {
+  static origin = { x: 0, y: 0 }
+
+  scale: number
+
+  constructor(scale) {
+    this.scale = scale;
+  }
+
+  calculateDistanceFromOrigin(point: { x: number, y: number }) {
+    let xDist = point.x - Grid.origin.x;
+    let yDist = point.y - Grid.origin.y;
+    return Math.sqrt(xDist * xDist + yDist * yDist) * this.scale;
   }
 }
 
-let greeter1: Greeter;
-greeter1 = new Greeter();
-console.log(greeter1.greet());
+let grid1 = new Grid(1.0);
+let grid2 = new Grid(5.0);
 
-let greeterMaker: typeof Greeter = Greeter;
-greeterMaker.standardGreeting = "Hey there!";
-
-let greeter2: Greeter = new greeterMaker();
-console.log(greeter2.greet());
+console.log(grid1.calculateDistanceFromOrigin({ x: 3, y: 4 }));
+console.log(grid2.calculateDistanceFromOrigin({ x: 5, y: 6 }));
