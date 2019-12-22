@@ -1,15 +1,19 @@
 {
   "name": "typescript-axios",
   "version": "0.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "基于TypeScript从零重构axios",
+  "keywords": [
+    "typescript-axios",
+    "typescript",
+    "axios"
+  ],
   "main": "dist/typescript-axios.umd.js",
   "module": "dist/typescript-axios.es5.js",
   "typings": "dist/types/typescript-axios.d.ts",
   "files": [
     "dist"
   ],
-  "author": "liuxuan <liuxuan351@foxmail.com>",
+  "author": "liangfengbo <itbo@163.com> https://github.com/liangfengbo/typescript-axios",
   "repository": {
     "type": "git",
     "url": ""
@@ -19,6 +23,7 @@
     "node": ">=6.0.0"
   },
   "scripts": {
+    "dev": "node examples/server.js",
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
@@ -115,6 +120,13 @@
     "tslint-config-prettier": "^1.15.0",
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.12.0",
-    "typescript": "^3.0.3"
+    "typescript": "^3.0.3",
+    "webpack": "^4.28.4",
+    "webpack-dev-middleware": "^3.5.0",
+    "webpack-hot-middleware": "^2.24.3",
+    "ts-loader": "^5.3.3",
+    "tslint-loader": "^3.5.4",
+    "express": "^4.16.4",
+    "body-parser": "^1.18.3"
   }
 }
